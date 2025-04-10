@@ -138,6 +138,10 @@ En el código anterior, se define el pin del sensor DHT como const int pinDHT = 
 - Asegúrate de que los cables estén conectados correctamente y que no haya cortocircuitos.
 - Verifica que el ESP32 esté configurado para utilizar el pin correcto para leer los datos del sensor.
 
+
+# Programacion:
+
+
 ----
 
 Este es un codigo para mi uso personal, espero que le sirva a alguien más :D
