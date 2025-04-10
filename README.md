@@ -6,8 +6,6 @@ Su diseño está basado en las experiencias de personas con insensibilidad e inc
 Puede servir para otros usos, o adaptarse para ello.
 
 
-# Para lograr esto, necesitarás:
-
 ## Componentes
 - ESP32
 - Sensor de humedad y temperatura del aire (por ejemplo, DHT11 o DHT22)
