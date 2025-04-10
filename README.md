@@ -141,7 +141,35 @@ En el código anterior, se define el pin del sensor DHT como const int pinDHT = 
 
 # Programacion:
 
+Para programar una ESP32 con el software de Arduino, sigue estos pasos:
 
+Descarga el Arduino IDE desde el sitio oficial:
+https://www.arduino.cc/en/software
+Instala el Arduino IDE en tu computadora
+Una vez instalado, abre el Arduino IDE y configúralo para que soporte ESP32:
+
+Ve a Archivo > Preferencias
+En "URLs adicionales de Gestor de Tarjetas", añade:
+https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+Haz clic en "OK"
+
+
+Ahora instala las placas ESP32:
+
+Ve a Herramientas > Placa > Gestor de tarjetas
+Busca "esp32"
+Encuentra el paquete "ESP32 by Espressif Systems" e instálalo
+
+
+Una vez instalado, podrás seleccionar tu modelo específico de ESP32:
+
+Ve a Herramientas > Placa > ESP32 Arduino
+Selecciona tu modelo (como "ESP32 Dev Module", "WEMOS LOLIN32", etc.)
+
+
+Conecta tu ESP32 al ordenador mediante USB y selecciona el puerto correcto en Herramientas > Puerto
+
+Ahora ya puedes programar tu ESP32 usando el entorno Arduino.
 ----
 
 Este es un codigo para mi uso personal, espero que le sirva a alguien más :D
