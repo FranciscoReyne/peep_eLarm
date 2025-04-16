@@ -1,4 +1,4 @@
-# Pip-I-Larm
+# Peep_eLarm (o Pip-iLarm)
 Alarma sonora economica, con esp32 y sensor de humedad.
 
 Su diseño está basado en las experiencias de personas con insensibilidad e incontinencia urinaria.
