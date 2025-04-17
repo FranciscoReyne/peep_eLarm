@@ -76,7 +76,7 @@ void loop() {
 
 ---
 ````
-Claro! Aquí te presento el código modificado para un DHT21:
+Código modificado para un DHT21:
 
 
 const int pinBuzzer = 5; // Pin del buzzer
