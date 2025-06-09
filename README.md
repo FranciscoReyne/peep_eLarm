@@ -1,11 +1,81 @@
 # Peep_eLarm (o Pip-iLarm)
-Alarma sonora economica, con esp32 y sensor de humedad.
+Alarma sonora economica, con Arduino o esp32 y sensor de humedad.
 
 Su diseño está basado en las experiencias de personas con insensibilidad e incontinencia urinaria.
 
 Puede servir para otros usos, o adaptarse para ello.
 
 
+# Version 1.
+Sistema en arduino que puede activarse cuando el nivel de humedad supera un cierto umbral.
+
+### **Materiales necesarios**:
+- **Arduino Uno** (o cualquier otra placa compatible)
+- **Sensor DHT11** (para medir la humedad)
+- **Buzzers** (para la alarma sonora)
+- **Resistencias** (si es necesario)
+- **Cables de conexión** (jumper wires)
+- **Protoboard** (opcional)
+
+### **Conexión del circuito**:
+1. **Sensor DHT11**:
+   - **VCC** → 5V de Arduino
+   - **GND** → GND de Arduino
+   - **DATA** → Un pin digital de Arduino (ejemplo: D2)
+
+2. **Buzzer**:
+   - **Pin positivo** → Un pin digital de Arduino (ejemplo: D9)
+   - **Pin negativo** → GND de Arduino
+
+### **Código en Arduino**:
+```cpp
+#include <DHT.h>
+
+#define DHTPIN 2        // Pin donde está conectado el sensor
+#define DHTTYPE DHT11   // Tipo de sensor
+#define BUZZER 9        // Pin del buzzer
+
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(9600);
+  dht.begin();
+  pinMode(BUZZER, OUTPUT);
+}
+
+void loop() {
+  float humedad = dht.readHumidity();  // Leer la humedad
+
+  if (isnan(humedad)) {
+    Serial.println("Error al leer el sensor DHT11");
+    return;
+  }
+
+  Serial.print("Humedad: ");
+  Serial.print(humedad);
+  Serial.println("%");
+
+  if (humedad > 70) {  // Umbral de humedad, ajusta según necesidad
+    digitalWrite(BUZZER, HIGH);  // Activar buzzer
+    Serial.println("¡Alarma activada!");
+    delay(1000);
+    digitalWrite(BUZZER, LOW);   // Apagar buzzer
+  }
+
+  delay(2000);  // Esperar antes de la siguiente lectura
+}
+```
+
+### **Explicación**:
+- **Lee la humedad** del sensor DHT11 y la imprime en el monitor serie.
+- **Si la humedad es mayor a 70%**, activa el buzzer como alarma durante un segundo y luego lo apaga.
+- **Se espera 2 segundos** antes de la siguiente lectura para evitar lecturas excesivas.
+
+
+---
+
+
+# Version 2.
 ## Componentes
 - ESP32
 - Sensor de humedad y temperatura del aire (por ejemplo, DHT11 o DHT22)
